@@ -16,11 +16,11 @@ const markup = galleryItems.map(({original, preview, description}) =>
 
 galleryEl.insertAdjacentHTML("beforeend", markup);
 
+let gallery = new SimpleLightbox('.gallery a',{captionsData: "alt", captionDelay: 250,});
+
 function onClickGallery(e) {
     e.preventDefault();
-
-    let gallery = new SimpleLightbox('.gallery a',{captionsData: "alt", captionDelay: 250,});
-        gallery.on('show.simplelightbox', function () {
+    gallery.on('show.simplelightbox', function () {
 	    // do something…
     });
 }
