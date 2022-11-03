@@ -24,9 +24,11 @@ galleryEl.insertAdjacentHTML("beforeend", markup);
 function onClickGallery(e) {
     e.preventDefault();
 
-    basicLightbox.create(`
-    <img src="${e.target.dataset.source}" width="800" height="600">
-`).show();
+    if (e.target.className == "gallery__image") {
+        basicLightbox.create(`
+        <img src="${e.target.dataset.source}" width="800" height="600">
+        `).show();
+    }
 }
 
 

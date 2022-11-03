@@ -9,14 +9,14 @@ galleryEl.addEventListener("click", onClickGallery);
 
 const markup = galleryItems.map(({original, preview, description}) =>
     `
-    <a class="gallery__item" href="${original}">
+    <a class="gallery__item" style="display: block" href="${original}">
         <img class="gallery__image" src="${preview}" alt="${description}" />
     </a>
 `).join("");
 
 galleryEl.insertAdjacentHTML("beforeend", markup);
 
-let gallery = new SimpleLightbox('.gallery a',{captionsData: "alt", captionDelay: 250,});
+let gallery = new SimpleLightbox('.gallery a',{captions: true, captionSelector: "img", captionsData: "alt", captionDelay: 250, captionPosition: "bottom"});
 
 function onClickGallery(e) {
     e.preventDefault();
